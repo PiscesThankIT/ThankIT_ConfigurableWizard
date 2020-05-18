@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <referenceBlock name="variation-steps-wizard">
+        <block class="ThankIT\ConfigurableWizard\Block\Adminhtml\Product\Steps\Manual" name="skipStep" template="ThankIT_ConfigurableWizard::catalog/product/edit/attribute/steps/manual.phtml" before="step3">
+            <arguments>
+                <argument name="config" xsi:type="array">
+                    <item name="form" xsi:type="string">product_form.product_form</item>
+                    <item name="modal" xsi:type="string">configurableModal</item>
+                    <item name="dataScope" xsi:type="string">productFormConfigurable</item>
+                </argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+</layout>

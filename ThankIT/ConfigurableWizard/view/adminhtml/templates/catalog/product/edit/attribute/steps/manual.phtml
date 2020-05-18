@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var $block \Magento\ConfigurableProduct\Block\Adminhtml\Product\Steps\Summary */
+?>
+<div data-bind="scope: '<?= /* @noEscape */  $block->getComponentName() ?>'">
+    <h2 class="steps-wizard-title"><?= $block->escapeHtml(
+        __('Optional Step: Add Products Manually')
+    ); ?></h2>
+    <div class="admin__field-control" style="padding-top:15px;">
+        <button type="button"
+                data-bind="click: skip"
+                title="<?= $block->escapeHtmlAttr(__('Optional')) ?>">
+                    <span><?= $block->escapeHtml(
+                            __('I want to add products later and manually')
+                        ); ?></span>
+        </button>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "<?= /* @noEscape */  $block->getComponentName() ?>": {
+                        "component": "ThankIT_ConfigurableWizard/js/variations/steps/manual",
+                        "appendTo": "<?= /* @noEscape */  $block->getParentComponentName() ?>",
+                        "variationsComponent": "<?= /* @noEscape */ $block->getData('config/form') ?>.configurableVariations",
+                        "modalComponent": "<?= /* @noEscape */ $block->getData('config/form') ?>.configurableModal",
+                        "matrixComponent": "<?= /* @noEscape */ $block->getData('config/form') ?>.configurable.configurable-matrix",
+                        "block1Component": "<?= /* @noEscape */ $block->getData('config/form') ?>.configurable_associated_product_modal.information-block1",
+                        "block2Component": "<?= /* @noEscape */ $block->getData('config/form') ?>.configurable_associated_product_modal.information-block2"
+                    }
+                }
+            }
+        }
+    }
+</script>
